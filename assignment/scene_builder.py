@@ -76,6 +76,18 @@ building = cmds.polyCube(
 )[0]
 # Raise the building so its base sits on the ground plane.
 cmds.move(building_x, building_height / 2.0, building_z, building)
+# Ground Plane 
+ground_width = 50
+ground_depth = 50
+ground = cmds.polyPlane(name ="ground_plane", width=ground_width, depth=ground_depth)
+
+# Object 1
+building_width = 7
+building_height = 6
+building_depth = 5
+building_x = -5
+building_z = 5
+building = cmds.polyCube(name = "building_1", width=building_width , height=building_height, depth=building_depth) 
 
 # ---------------------------------------------------------------------------
 # TODO: Add Object 2
@@ -85,12 +97,6 @@ cmds.move(building_x, building_height / 2.0, building_z, building)
 #   - Name the object meaningfully with the 'name' parameter or cmds.rename().
 #   - Position it so it sits on the ground (not floating or buried).
 # ---------------------------------------------------------------------------
-building_width = 7
-building_height = 6
-building_depth = 5
-building_x = -5
-building_z = 5
-building = cmds.polyCube(name = "building_1", width=building_width , height=building_height, depth=building_depth) 
 
 # ---------------------------------------------------------------------------
 # TODO: Add Object 3
