@@ -82,15 +82,16 @@ cmds.move(building_x, building_height / 2.0, building_z, building)
 # Ground Plane 
 ground_width = 50
 ground_depth = 50
-ground = cmds.polyPlane(name ="ground_plane", width=ground_width, depth=ground_depth)
+ground = cmds.polyPlane(name ="ground_plane", width=ground_width, height=ground_depth)
 
 # Object 1
-building_width = 7
-building_height = 6
-building_depth = 5
-building_x = -5
-building_z = 5
-building = cmds.polyCube(name = "building_1", width=building_width , height=building_height, depth=building_depth) 
+building_1_width = 7
+building_1_height = 6
+building_1_depth = 5
+building_1_x = -5
+building_1_z = 5
+building_1 = cmds.polyCube(name = "building_1", width=building_width , height=building_height, depth=building_depth)
+cmds.move(building_x, building_height/2,building_z, building_1)
 
 # ---------------------------------------------------------------------------
 # TODO: Add Object 2
@@ -100,17 +101,54 @@ building = cmds.polyCube(name = "building_1", width=building_width , height=buil
 #   - Name the object meaningfully with the 'name' parameter or cmds.rename().
 #   - Position it so it sits on the ground (not floating or buried).
 # ---------------------------------------------------------------------------
-
+building_2_height = 8
+building_2_x = 10
+building_2_z = 3
+building_2_radius = 3
+building_2 = cmds.polyCylinder(name="building_2", height=building_2_height, radius = building_2_radius)
+cmds.move(building_2_x, building_2_height/2, building_2_z, building_2)
 # ---------------------------------------------------------------------------
 # TODO: Add Object 3
 # ---------------------------------------------------------------------------
-
+building_3_width=5
+building_3_height=10
+building_3_depth=6
+building_3_x=-10
+building_3_z=-19
+building_3 = cmds.polyCube(name="building_3",width=building_3_width,height=building_3_height,depth=building_3_depth)
+cmds.move(building_3_x,building_3_height/2, building_3_z, building_3)
 
 # ---------------------------------------------------------------------------
 # TODO: Add Object 4
 # ---------------------------------------------------------------------------
 
+#Base of the First Lightpole
+lightPole_1_Base_height = 4
+lightPole_1_Base_radius = 0.5
+lightPole_1_Base_x= 12
+lightPole_1_Base_z= -6
+lightPole_1_Base = cmds.polyCylinder(name="lightPole_1_Base", height = lightPole_1_Base_height, radius = lightPole_1_Base_radius)
+cmds.move(lightPole_1_Base_x, lightPole_1_Base_height/2, lightPole_1_Base_z, lightPole_1_Base)
 
+#the light itself
+light_Source_radius = 0.7
+#the light sources x and z coordinates will change with the lightpole's base for it to stay in one piece 
+light_Source_x = lightPole_1_Base_x
+light_Source_y = 4.57
+light_Source_z = lightPole_1_Base_z
+light_Source = cmds.polySphere(name="light_Source", radius= light_Source_radius)
+cmds.move(light_Source_x, light_Source_y, light_Source_z, light_Source)
+
+#the top part of the lightpole
+lightPole_Top_height = 1
+lightPole_Top_radius = 0.7
+
+#the x and z coordinates use the light pole's base numbers for it to stay together 
+lightPole_Top_x= lightPole_1_Base_x
+lightPole_Top_y= 5.4
+lightPoly_Top_z= lightPole_1_Base_z
+lightPole_Top= cmds.polyCone(name = "lightPole_Cap", height= lightPole_Top_height, radius= lightPole_Top_radius)
+cmds.move(lightPole_Top_x, lightPole_Top_y, lightPoly_Top_z, lightPole_Top)
 # ---------------------------------------------------------------------------
 # TODO: Add Object 5
 # ---------------------------------------------------------------------------
